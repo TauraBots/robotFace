@@ -1,5 +1,11 @@
 # Arduino IDE Keywords for Syntax Coloring
 
 # Keyword for class Thread
+Motor_Manager	KEYWORD1
 
 # Keyword for class functions
+Motor		KEYWORD1
+setValues	KEYWORD2
+spinMotor	KEYWORD2
+gotSpinTime	KEYWORD2
+getCurrentAngle	KEYWORD2

@@ -1,5 +1,12 @@
 # Arduino IDE Keywords for Syntax Coloring
 
 # Keyword for class Thread
+Thread_Manager	KEYWORD1
 
 # Keyword for class functions
+Thread	KEYWORD2
+changeTimer	KEYWORD2
+gotTime	KEYWORD2
+timer	KEYWORD2
+refreshTime	KEYWORD2
+
