@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/hardware/arduino/avr/cores/arduino",
+                "/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/**",
+                "/home/douglas/Arduino/libraries/**"
+            ],
+
+            "defines": [
+                "USBCON"
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}

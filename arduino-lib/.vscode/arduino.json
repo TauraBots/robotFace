@@ -1,7 +1,0 @@
-{
-    "programmer": "AVR ISP",
-    "board": "arduino:avr:uno",
-    "output": "build",
-    "port": "/dev/ttyS0",
-    "sketch": "arduino-lib.ino"
-}
