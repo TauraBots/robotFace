@@ -1,0 +1,11 @@
+{
+  "additionalFiles": "/motor-lib/motor.cpp,/motor-lib/motor.h,/thread-lib/thread.cpp,/thread-lib/thread.h",
+  "builtInLibrariesFolders": "/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/libraries",
+  "customBuildProperties": "build.path=/home/douglas/projects/git/robot-face/arduino-lib/build,build.warn_data_percentage=75,runtime.tools.arduinoOTA.path=/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/hardware/tools/avr,runtime.tools.arduinoOTA-1.2.1.path=/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/hardware/tools/avr,runtime.tools.avrdude.path=/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/hardware/tools/avr,runtime.tools.avrdude-6.3.0-arduino14.path=/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/hardware/tools/avr,runtime.tools.avr-gcc.path=/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/hardware/tools/avr,runtime.tools.avr-gcc-5.4.0-atmel3.6.1-arduino2.path=/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/hardware/tools/avr",
+  "fqbn": "arduino:avr:uno",
+  "hardwareFolders": "/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/hardware",
+  "otherLibrariesFolders": "/home/douglas/Arduino/libraries",
+  "runtime.ide.version": "10809",
+  "sketchLocation": "/home/douglas/projects/git/robot-face/arduino-lib/arduino-lib.ino",
+  "toolsFolders": "/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/tools-builder,/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/hardware/tools/avr"
+}

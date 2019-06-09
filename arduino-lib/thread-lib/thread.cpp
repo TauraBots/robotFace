@@ -1,4 +1,4 @@
-#include "Thread_Manager.h"
+#include "thread.h"
 
 Thread::Thread(unsigned long msTimer) {
   _msTimer = msTimer;

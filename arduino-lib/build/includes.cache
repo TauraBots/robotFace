@@ -1,0 +1,82 @@
+[
+  {
+    "Sourcefile": "",
+    "Include": "",
+    "Includepath": "/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/hardware/arduino/avr/cores/arduino"
+  },
+  {
+    "Sourcefile": "",
+    "Include": "",
+    "Includepath": "/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/hardware/arduino/avr/variants/standard"
+  },
+  {
+    "Sourcefile": "/home/douglas/projects/git/robot-face/arduino-lib/build/sketch/arduino-lib.ino.cpp",
+    "Include": "motor.h",
+    "Includepath": "/home/douglas/Arduino/libraries/motor-lib"
+  },
+  {
+    "Sourcefile": "/home/douglas/projects/git/robot-face/arduino-lib/build/sketch/arduino-lib.ino.cpp",
+    "Include": "thread.h",
+    "Includepath": "/home/douglas/Arduino/libraries/thread-lib"
+  },
+  {
+    "Sourcefile": "/home/douglas/projects/git/robot-face/arduino-lib/build/sketch/arduino-lib.ino.cpp",
+    "Include": "Servo.h",
+    "Includepath": "/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/libraries/Servo/src"
+  },
+  {
+    "Sourcefile": "/home/douglas/projects/git/robot-face/arduino-lib/build/sketch/arduino-lib.ino.cpp",
+    "Include": "DynamixelProtocol.h",
+    "Includepath": "/home/douglas/Arduino/libraries/DynamixelProtocol"
+  },
+  {
+    "Sourcefile": "/home/douglas/projects/git/robot-face/arduino-lib/build/sketch/arduino-lib.ino.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "/home/douglas/Arduino/libraries/motor-lib/motor.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "/home/douglas/Arduino/libraries/thread-lib/thread.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/libraries/Servo/src/avr/Servo.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/libraries/Servo/src/megaavr/Servo.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/libraries/Servo/src/nrf52/Servo.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/libraries/Servo/src/sam/Servo.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/libraries/Servo/src/samd/Servo.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "/home/douglas/arduino-1.8.9-linux64/arduino-1.8.9/libraries/Servo/src/stm32f4/Servo.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "/home/douglas/Arduino/libraries/DynamixelProtocol/DynamixelProtocol.cpp",
+    "Include": "",
+    "Includepath": ""
+  }
+]
