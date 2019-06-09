@@ -2,18 +2,18 @@
 
 int Motor::counter = 2;
 
-void Motor::setMotorDefinitions(int startAngle, int beginLimit, int endLimit){
+void Motor::setMotorDefinitions(unsigned char startAngle, unsigned char beginLimit, unsigned char endLimit){
   servo.attach(counter++);
   limitAngle[0] = beginLimit;
   limitAngle[1] = endLimit;
   servo.write(checkRange(startAngle));
 }
 
-void Motor::goTo(int angle){
-  servo.write(checkRange(angle));
+void Motor::goTo(unsigned char angle){
+  servo.write(int(checkRange(angle)));
 }
 
-int Motor::checkRange(int targetPos){
+unsigned char Motor::checkRange(unsigned char targetPos){
  if (targetPos <  limitAngle[0]){
    return limitAngle[0];
  }

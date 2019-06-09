@@ -7,14 +7,14 @@
 
 class Motor{  
   public:
-    void setMotorDefinitions( int startAngle, int beginLimit, int endLimit);
-    void goTo(int angle);
+    void setMotorDefinitions( unsigned char startAngle, unsigned char beginLimit, unsigned char endLimit);
+    void goTo(unsigned char angle);
     static void returnCount();
         
   private:
     static int counter;
-    int checkRange(int targetPos);
-    int limitAngle[2] = {5,175};
+    unsigned char checkRange(unsigned char targetPos);
+    unsigned char limitAngle[2] = {5,175};
     Servo servo;
     
 };

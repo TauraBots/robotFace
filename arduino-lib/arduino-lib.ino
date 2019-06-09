@@ -14,22 +14,18 @@ enum motors : byte {
 };
 
 Motor motor[12];
-
 DynamixelProtocol dxl(BAUDRATE, ID);
-
-uint32_t angle;
-int adress;
-int lenght;
+unsigned char adress;
+unsigned char angle;
 
 void setup() {
   dxl.init();
   Serial.begin(BAUDRATE);
   Serial.flush();
-  
-  motor[EYEBROW_ANGLE_RIGHT].setMotorDefinitions(180, 0, 150);
-  motor[EYEBROW_ANGLE_LEFT].setMotorDefinitions(180, 0, 150);
   motor[EYEBROW_HEIGHT_RIGHT].setMotorDefinitions(180, 0, 150);
   motor[EYEBROW_HEIGHT_LEFT].setMotorDefinitions(180, 0, 150);
+  motor[EYEBROW_ANGLE_RIGHT].setMotorDefinitions(180, 0, 150);
+  motor[EYEBROW_ANGLE_LEFT].setMotorDefinitions(180, 0, 150);  
   motor[EYELID_UP_RIGHT].setMotorDefinitions(0, 5, 175);
   motor[EYELID_UP_LEFT].setMotorDefinitions(0, 5, 175);
   motor[EYELID_DOWN_RIGHT].setMotorDefinitions(0, 5, 175);
@@ -41,36 +37,12 @@ void setup() {
 }
 
 void loop(){
-  uint32_t angle = 0;
-
-  // DXL
   dxl.checkMessages();
-  if(dxl.instruction != DXL_NO_DATA){
+  if(dxl.instruction != DXL_NO_DATA && dxl.id == ID){
     switch(dxl.instruction){
-      case DXL_READ_DATA:
-        break;
-        
       case DXL_WRITE_DATA:
-        lenght = dxl.total_parameters;
-        
-        //Debug
-        for(int i=0; i< lenght; i++){
-          Serial.print("valor: ");
-          Serial.println(dxl.parameters[i]); 
-        }
-        
-        //that's working... but only if the adress is in the dxl.parameters[0]
-        //and the angle is in the dxl.parrealameters[1]
-        
-        for(int i = 0; i< lenght; i++){
-          if(i < 1){
-            adress = dxl.parameters[i];
-          }else{
-            angle = angle<<8 | dxl.parameters[i];
-            //angle = dxl.parameters[i] | angle>>8;  
-          }
-        }
-        
+        adress = dxl.parameters[0];
+        angle = dxl.parameters[1];
         switch(adress){
           case EYEBROW_HEIGHT_RIGHT:
             motor[EYEBROW_HEIGHT_RIGHT].goTo(angle);
@@ -104,13 +76,13 @@ void loop(){
             break;
           case JAW_CLOCKWISE:
             motor[JAW_CLOCKWISE].goTo(angle);
-            motor[JAW_ANTICLOCKWISE].goTo(180-angle);            
+            motor[JAW_ANTICLOCKWISE].goTo(angle);            
             break;
           default:
             break;
         }
-        
+      default:
         break;
-    } 
+    }   
   }
 }
