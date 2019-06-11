@@ -1,7 +1,7 @@
 from math import pi
 import sys
 
-sys.path.append('/home/jio/workspace/PyDynamixel/dynamixel')
+sys.path.append('/home/victor/projetos/git/robot-face/face-recognition/PyDynamixel/dynamixel')
 import dynamixel_functions as dxl
 
 ADDR_MX_TORQUE_ENABLE = 0x18  # Address for torque enable

@@ -21,9 +21,9 @@ import threading
 from PyDynamixel.pyjoints import DxlComm, Joint
 #import alsaaudio, time, audioop
 
-ardbus = DxlComm('/dev/ttyACM2')
-arduino = Joint(128)
-ardbus.attachJoint(arduino)
+#ardbus = DxlComm('/dev/ttyACM2')
+#arduino = Joint(128)
+#ardbus.attachJoint(arduino)
 
 #from speaker import sendSound
 
@@ -37,10 +37,10 @@ ap.add_argument("-r", "--recognizer", required=True,
 	help="path to model trained to recognize faces")
 ap.add_argument("-l", "--le", required=True,
 	help="path to label encoder")
-ap.add_argument("-p", "--prototxt", required=True,
-	help="path to Caffe 'deploy' prototxt file")
-ap.add_argument("-m", "--model", required=True,
-	help="path to Caffe pre-trained model")
+#ap.add_argument("-p", "--prototxt", required=True,
+#	help="path to Caffe 'deploy' prototxt file")
+#ap.add_argument("-m", "--model", required=True,
+#	help="path to Caffe pre-trained model")
 ap.add_argument("-c", "--confidence", type=float, default=0.2,
 	help="minimum probability to filter weak detections")
 args = vars(ap.parse_args())
@@ -53,14 +53,14 @@ COLORS = np.random.uniform(0, 255, size=(len(CLASSES), 3))
 
 # load our serialized face detector from disk
 print("[INFO] loading face detector...")
-protoPath = os.path.sep.join([args["detector"], "deploy.prototxt"])
+#protoPath = os.path.sep.join([args["detector"], "deploy.prototxt"])
 modelPath = os.path.sep.join([args["detector"],
 	"res10_300x300_ssd_iter_140000.caffemodel"])
-detector = cv2.dnn.readNetFromCaffe(protoPath, modelPath)
+#detector = cv2.dnn.readNetFromCaffe(protoPath, modelPath)
 
 # load our serialized model from disk
 print("[INFO] loading model...")
-net = cv2.dnn.readNetFromCaffe(args["prototxt"], args["model"])
+#net = cv2.dnn.readNetFromCaffe(args["prototxt"], args["model"])
 
 # load our serialized face embedding model from disk
 print("[INFO] loading face recognizer...")
@@ -108,13 +108,13 @@ while True:
 
 	# apply OpenCV's deep learning-based face detector to localize
 	# faces in the input image
-	detector.setInput(imageBlob)
-	net.setInput(blob)
+	#detector.setInput(imageBlob)
+	#net.setInput(blob)
 	detections = detector.forward()
 	detections2 = net.forward()
 
 	# loop over the detections
-	for i in np.arange(0, detections2.shape[2]):
+	'''for i in np.arange(0, detections2.shape[2]):
 		# extract the confidence (i.e., probability) associated with
 		# the prediction
 		confidence = detections2[0, 0, i, 2]
@@ -164,7 +164,7 @@ while True:
 			y = startY - 15 if startY - 15 > 15 else startY + 15
 			cv2.putText(frame, label, (startX, y),
 				cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLORS[idx], 2)
-
+	'''
 	# loop over the detections
 	for i in range(0, detections.shape[2]):
 		# extract the confidence (i.e., probability) associated with
@@ -221,12 +221,13 @@ while True:
 			text = "{}: {:.2f}%".format(name, proba * 100)
 			y = startY - 10 if startY - 10 > 10 else startY + 10                                                         
 
+			print "aaaa"
 			xPosition = int(abs(100 - ((((endX-startX)/2.0)+startX)/6.1538)+55))
 			yPosition = int(((((endY-startY)*0.2)+startY)/4.6154)+55)
 			print ("x: " + str(xPosition))
 			print ("y: " + str(yPosition))
-			arduino.writeValue(3, xPosition)	
-			arduino.writeValue(2, yPosition)
+			#arduino.writeValue(3, xPosition)	
+			#arduino.writeValue(2, yPosition)
 
 			cv2.rectangle(frame, (startX, startY), (endX, endY),
 				(0, 0, 255), 2)

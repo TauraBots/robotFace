@@ -39,7 +39,7 @@ from os import getcwd as pwd
 # dxl_lib = cdll.LoadLibrary("../../c/build/win32/output/dxl_x86_c.dll")  # for windows 32bit
 # dxl_lib = cdll.LoadLibrary("../../c/build/win64/output/dxl_x64_c.dll")  # for windows 64bit
 # dxl_lib = cdll.LoadLibrary("../../c/build/linux32/libdxl_x86_c.so")     # for linux 32bit
-dxl_lib = cdll.LoadLibrary("/home/jio/workspace/PyDynamixel/dynamixel/libdxl_x64_c.so") # for linux 64bit
+dxl_lib = cdll.LoadLibrary("/home/victor/projetos/git/robot-face/face-recognition/PyDynamixel/dynamixel/libdxl_x64_c.so") # for linux 64bit
 # dxl_lib = cdll.LoadLibrary("../../c/build/linux_sbc/libdxl_sbc_c.so")   # for SBC linux
 
 # port_handler
