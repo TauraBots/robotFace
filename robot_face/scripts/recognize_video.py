@@ -56,8 +56,8 @@ time.sleep(1.5)
 output = Int16MultiArray()
 output.data = []
 
-pub = rospy.Publisher('updateEyes', Int16MultiArray, queue_size=10)
-rospy.init_node('cameraEyes', anonymous=False)
+pub = rospy.Publisher('eye', Int16MultiArray, queue_size=10)
+rospy.init_node('eyeEnable', anonymous=False)
 rate = rospy.Rate(40)
 
 # start the FPS throughput estimator
@@ -127,11 +127,12 @@ while True:
 			text = "{}: {:.2f}%".format(name, proba * 100)
 			y = startY - 10 if startY - 10 > 10 else startY + 10
 			
-			#xPosition = int(abs(100 - ((((endX-startX)/2.0)+startX)/6.1538)+55))
-			#yPosition = int(((((endY-startY)*0.2)+startY)/4.6154)+55)
+			
+			xPosition = int(abs(100 - ((((endX-startX)/2.0)+startX)/6.1538)+55))
+			yPosition = int(((((endY-startY)*0.2)+startY)/4.6154)+55)
 				
 			output.data = []
-			output.data = [startX, startY, endX, endY]
+			output.data = [xPosition, yPosition]
 			rospy.loginfo(output)
 			pub.publish(output)
 			
