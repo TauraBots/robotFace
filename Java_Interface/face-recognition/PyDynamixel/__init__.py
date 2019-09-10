@@ -1,2 +1,0 @@
-from PyDynamixel.pyjoints import *
-
