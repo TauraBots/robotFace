@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: robot_face
+Description: Description of robot_face
+Version: 0.0.0
+Cflags: 
+Libs: -L/usr/local/lib 
+Requires: 

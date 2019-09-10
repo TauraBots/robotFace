@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/victor_kich/catkin_ws/src/robot_face/build/devel/setup.sh
