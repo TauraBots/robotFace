@@ -7,4 +7,4 @@ Use  ``` rosrun ... ``` para executar os nós um por um (vou criar os launchs lo
 
 Com o comando ``` rosrun robot_face faceMonitoring.py ``` você pode observar o comportamento discretizado dos motores em tempo real.
 
-![Alt text](readmeMedia/faceMonitoring.png?raw=true "Title")
+![alt text](https://imgur.com/kBRv57p)
