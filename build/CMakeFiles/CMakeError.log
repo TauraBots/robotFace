@@ -1,24 +1,24 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/victor_kich/catkin_ws/src/robot_face/build/CMakeFiles/CMakeTmp
+Change Dir: /home/victor_kich/faceDoris/src/robotFace/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_96451/fast"
-/usr/bin/make -f CMakeFiles/cmTC_96451.dir/build.make CMakeFiles/cmTC_96451.dir/build
-make[1]: Entering directory '/home/victor_kich/catkin_ws/src/robot_face/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_96451.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_96451.dir/CheckSymbolExists.c.o   -c /home/victor_kich/catkin_ws/src/robot_face/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_96451
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_96451.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_96451.dir/CheckSymbolExists.c.o  -o cmTC_96451 
-CMakeFiles/cmTC_96451.dir/CheckSymbolExists.c.o: In function `main':
+Run Build Command:"/usr/bin/make" "cmTC_b160d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b160d.dir/build.make CMakeFiles/cmTC_b160d.dir/build
+make[1]: Entering directory '/home/victor_kich/faceDoris/src/robotFace/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b160d.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_b160d.dir/CheckSymbolExists.c.o   -c /home/victor_kich/faceDoris/src/robotFace/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_b160d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b160d.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_b160d.dir/CheckSymbolExists.c.o  -o cmTC_b160d 
+CMakeFiles/cmTC_b160d.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_96451.dir/build.make:97: recipe for target 'cmTC_96451' failed
-make[1]: *** [cmTC_96451] Error 1
-make[1]: Leaving directory '/home/victor_kich/catkin_ws/src/robot_face/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_96451/fast' failed
-make: *** [cmTC_96451/fast] Error 2
+CMakeFiles/cmTC_b160d.dir/build.make:97: recipe for target 'cmTC_b160d' failed
+make[1]: *** [cmTC_b160d] Error 1
+make[1]: Leaving directory '/home/victor_kich/faceDoris/src/robotFace/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_b160d/fast' failed
+make: *** [cmTC_b160d/fast] Error 2
 
-File /home/victor_kich/catkin_ws/src/robot_face/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File /home/victor_kich/faceDoris/src/robotFace/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 #include <pthread.h>
 
@@ -34,22 +34,22 @@ int main(int argc, char** argv)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/victor_kich/catkin_ws/src/robot_face/build/CMakeFiles/CMakeTmp
+Change Dir: /home/victor_kich/faceDoris/src/robotFace/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_fcf3a/fast"
-/usr/bin/make -f CMakeFiles/cmTC_fcf3a.dir/build.make CMakeFiles/cmTC_fcf3a.dir/build
-make[1]: Entering directory '/home/victor_kich/catkin_ws/src/robot_face/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_fcf3a.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_fcf3a.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_fcf3a
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fcf3a.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_fcf3a.dir/CheckFunctionExists.c.o  -o cmTC_fcf3a -lpthreads 
+Run Build Command:"/usr/bin/make" "cmTC_81171/fast"
+/usr/bin/make -f CMakeFiles/cmTC_81171.dir/build.make CMakeFiles/cmTC_81171.dir/build
+make[1]: Entering directory '/home/victor_kich/faceDoris/src/robotFace/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_81171.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_81171.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_81171
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_81171.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_81171.dir/CheckFunctionExists.c.o  -o cmTC_81171 -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_fcf3a.dir/build.make:97: recipe for target 'cmTC_fcf3a' failed
-make[1]: *** [cmTC_fcf3a] Error 1
-make[1]: Leaving directory '/home/victor_kich/catkin_ws/src/robot_face/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_fcf3a/fast' failed
-make: *** [cmTC_fcf3a/fast] Error 2
+CMakeFiles/cmTC_81171.dir/build.make:97: recipe for target 'cmTC_81171' failed
+make[1]: *** [cmTC_81171] Error 1
+make[1]: Leaving directory '/home/victor_kich/faceDoris/src/robotFace/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_81171/fast' failed
+make: *** [cmTC_81171/fast] Error 2
 
 

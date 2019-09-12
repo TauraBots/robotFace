@@ -41,7 +41,7 @@ class emotionEnable():
         print(self.data)
 
     def startVideo(self):
-        os.system("rosrun robotFace recognize_video.py --detector faceDoris/src/robotFace/scripts/face_detection_model --embedding-model faceDoris/src/robotface/scripts/openface_nn4.small2.v1.t7 --recognizer faceDoris/src/robotFace/scripts/output/recognizer.pickle --le faceDoris/src/robotFace/scripts/output/le.pickle")
+        os.system("rosrun robotFace recognize_video.py --detector ~/faceDoris/src/robotFace/src/face_detection_model --embedding-model ~/faceDoris/src/robotFace/src/openface_nn4.small2.v1.t7 --recognizer ~/faceDoris/src/robotFace/src/output/recognizer.pickle --le ~/faceDoris/src/robotFace/src/output/le.pickle")
 
 if __name__ == '__main__':
     try:

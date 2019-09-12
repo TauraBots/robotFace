@@ -1,8 +1,0 @@
-prefix=/home/victor_kich/catkin_ws/src/robot_face/build/devel
-
-Name: robot_face
-Description: Description of robot_face
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/victor_kich/catkin_ws/src/robot_face/build/devel/lib 
-Requires: 

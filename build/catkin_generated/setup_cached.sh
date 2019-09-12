@@ -7,7 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/victor_kich/catkin_ws/src/robot_face/build/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/victor_kich/catkin_ws/devel/lib:/opt/ros/melodic/lib:/usr/local/cuda-10.0/lib64"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/victor_kich/catkin_ws/src/robot_face/build/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/victor_kich/catkin_ws/src/robot_face:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/victor_kich/faceDoris/src/robotFace/build/devel:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/victor_kich/faceDoris/devel/lib:/home/victor_kich/RosiChallenge/devel/lib:/opt/ros/melodic/lib:/home/victor_kich/test/devel/lib"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/victor_kich/faceDoris/src/robotFace/build/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/victor_kich/faceDoris/src/robotFace:$ROS_PACKAGE_PATH"

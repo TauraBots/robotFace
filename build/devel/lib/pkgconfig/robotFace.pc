@@ -1,0 +1,8 @@
+prefix=/home/victor_kich/faceDoris/src/robotFace/build/devel
+
+Name: robotFace
+Description: Description of robotFace
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/victor_kich/faceDoris/src/robotFace/build/devel/lib 
+Requires: 

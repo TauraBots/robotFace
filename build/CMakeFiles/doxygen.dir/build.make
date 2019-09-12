@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/victor_kich/catkin_ws/src/robot_face
+CMAKE_SOURCE_DIR = /home/victor_kich/faceDoris/src/robotFace
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/victor_kich/catkin_ws/src/robot_face/build
+CMAKE_BINARY_DIR = /home/victor_kich/faceDoris/src/robotFace/build
 
 # Utility rule file for doxygen.
 
@@ -67,6 +67,6 @@ CMakeFiles/doxygen.dir/clean:
 .PHONY : CMakeFiles/doxygen.dir/clean
 
 CMakeFiles/doxygen.dir/depend:
-	cd /home/victor_kich/catkin_ws/src/robot_face/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/victor_kich/catkin_ws/src/robot_face /home/victor_kich/catkin_ws/src/robot_face /home/victor_kich/catkin_ws/src/robot_face/build /home/victor_kich/catkin_ws/src/robot_face/build /home/victor_kich/catkin_ws/src/robot_face/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/victor_kich/faceDoris/src/robotFace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/victor_kich/faceDoris/src/robotFace /home/victor_kich/faceDoris/src/robotFace /home/victor_kich/faceDoris/src/robotFace/build /home/victor_kich/faceDoris/src/robotFace/build /home/victor_kich/faceDoris/src/robotFace/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doxygen.dir/depend
 
