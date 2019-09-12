@@ -1,6 +1,8 @@
 # Pacote de controle do rosto animatrônico da Doris
 
-Crie um workspace ROS com o nome "faceDoris" na raiz do usuário
+- CONSTRUINDO O PACOTE 
+
+Crie um workspace ROS com o nome "faceDoris" na raiz do usuário...
 
 ``` mkdir -p ~/faceDoris/src ```
 
@@ -8,10 +10,18 @@ Crie um workspace ROS com o nome "faceDoris" na raiz do usuário
 
 ``` catkin_make ```
 
-Dê um ``` git clone https://github.com/TauraBots/robotFace ``` dentro do "src" e de ``` catkin_make ``` no workspace
+Dê um
 
-Use  ``` rosrun ... ``` para executar os nós um por um (vou criar os launchs logo).
+``` git clone https://github.com/TauraBots/robotFace ``` 
 
-Com o comando ``` rosrun robotFace faceMonitoring.py ``` você pode observar o comportamento discretizado dos motores em tempo real.
+dentro do "src" e de ``` catkin_make ``` no workspace.
+
+- USANDO O PACOTE
+
+Existem dois arquivos .launch para ser executados... o "withMonitor.launch" abre uma janela que possibilita observar o comportamento discretizado dos motores em tempo real. Enquanto o arquivo "withoutMonitor.launch" apenas executa os nodes (sem uma interface gráfica). Para executa-los, respectivamente, use:
+
+``` roslaunch robotFace withMonitor.launch  ```
+
+``` roslaunch robotFace withoutMonitor.launch  ```
 
 ![alt text](https://i.imgur.com/kBRv57p.png)
