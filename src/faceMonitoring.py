@@ -108,7 +108,7 @@ class CustomMainWindow(QtWidgets.QMainWindow):
         # Create and set left principal layout
         self.leftLayout = QVBoxLayout()
         self.principalBox.addLayout(self.leftLayout)
-
+ 
         # Create and set right principal layout
         self.rightLayout = QVBoxLayout()
         self.principalBox.addLayout(self.rightLayout)
