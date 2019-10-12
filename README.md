@@ -20,11 +20,11 @@ dentro do "src" e de ` catkin_make ` no workspace.
 
 Precisamos configurar o PyDynamixel manualmente. 
 
-Para fazer isso vá até o endereço robotFace/src/PyDynamixel/pyjoints.py
+Para fazer isso vá até o endereço `robotFace/src/PyDynamixel/pyjoints.py`
 
 Agora abra e altere o "sys.path.append" apropriadamente para o seu computador.
 
-Precisamos alterar mais um valor manualmente, esse esta no endereço robotFace/src/PyDynamixel/dynamixel/dynamixel_functions.py
+Precisamos alterar mais um valor manualmente, esse esta no endereço `robotFace/src/PyDynamixel/dynamixel/dynamixel_functions.py`
 
 Dessa vez altere de forma apropriada os parâmetros da função "cdll.LoadLibrary"
 
