@@ -12,7 +12,7 @@ Crie um workspace ROS com o nome "faceDoris" na raiz do usuário...
 
 Dê um
 
-``` git clone https://github.com/TauraBots/robotFace ``` 
+``` git clone https://github.com/TauraBots/robotFace --recursive ``` 
 
 dentro do "src" e de ``` catkin_make ``` no workspace.
 
