@@ -1,0 +1,3 @@
+[submodule "PyDynamixel"]
+	path = PyDynamixel
+	url = https://github.com/TauraBots/PyDynamixel
