@@ -1,0 +1,9 @@
+<launch>
+  <node pkg="robotFace" type="eyesController.py" name="eyesController" output="screen" />
+  <node pkg="robotFace" type="mouthController.py" name="mouthController" output="screen" />
+  <node pkg="robotFace" type="eyelidController.py" name="eyelidController" output="screen" />
+  <node pkg="robotFace" type="eyebrownController.py" name="eyebrowController" output="screen" />
+  <node pkg="robotFace" type="emotionController.py" name="emotionController" output="screen" />
+  <node pkg="robotFace" type="neckController.py" name="neckController" output="screen" />
+  <node pkg="robotFace" type="neckTest.py" name="neckTest" output="screen" />
+</launch>

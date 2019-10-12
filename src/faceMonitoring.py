@@ -71,8 +71,8 @@ class Env():
 
     def getEye(self, msg):
         self.data = msg.data
-        motors[2] = self.data[0] - 50
-        motors[3] = self.data[1] - 50
+        motors[2] = self.data[0] #- 50
+        motors[3] = self.data[1] #- 50
         print(self.data)
     
     def getEyelid(self, msg):
