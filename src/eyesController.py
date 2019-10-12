@@ -8,17 +8,17 @@ from std_msgs.msg import Int16MultiArray
 output = Int16MultiArray()
 output.data = []
 
-class emotionEnable():
+class eyesEnable():
     def __init__(self):
         pub = rospy.Publisher('eye', Int16MultiArray, queue_size=10)
         rospy.init_node('eyesEnable', anonymous=False)
-        self.sub_eyelid_st = rospy.Subscriber('updateEyes', Int16MultiArray, self.getEmotion)
+        self.sub_eye = rospy.Subscriber('updateEyes', Int16MultiArray, self.getEyes)
         rate = rospy.Rate(50) # 50hz
 
         self.xPosition = 50
         self.yPosition = 50
 
-        updateLoop = threading.Thread(name = 'startVideo', target = emotionEnable.startVideo, args = (self,))
+        updateLoop = threading.Thread(name = 'startVideo', target = eyesEnable.startVideo, args = (self,))
         updateLoop.setDaemon(True)
         updateLoop.start()
 
@@ -28,7 +28,7 @@ class emotionEnable():
             pub.publish(output)
             rate.sleep()
 
-    def getEmotion(self, msg):
+    def getEyes(self, msg):
         # Receive [startX, startY, endX, endY]
         self.data = msg.data
         startX = self.data[0]
@@ -45,7 +45,7 @@ class emotionEnable():
 
 if __name__ == '__main__':
     try:
-        emotionEnable()
+        eyesEnable()
     except rospy.ROSInterruptException:
         pass
 
