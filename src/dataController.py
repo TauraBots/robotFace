@@ -29,12 +29,9 @@ class dataflowEnable():
         self.sub_eyebrown.data = []  
         self.sub_eyebrown = rospy.Subscriber('eyebrown', Int16MultiArray, self.getEyebrown)
 
-        self.sub_neck = Int16MultiArray()
-        self.sub_neck.data = []  
-        self.sub_neck = rospy.Subscriber('neck', Int16MultiArray, self.getNeck)
-
-        #Todos os dados serão convertidos em angulos e enviados para o arduino por aqui...
-        print("Em desenvolvimento")
+        #self.sub_neck = Int16MultiArray()
+        #self.sub_neck.data = []  
+        #self.sub_neck = rospy.Subscriber('neck', Int16MultiArray, self.getNeck)
 
         updateLoop = threading.Thread(name = 'send2Arduino', target = dataflowEnable.sendArduino, args = (self,))
         updateLoop.setDaemon(True)
@@ -68,10 +65,10 @@ class dataflowEnable():
         motors[10] = self.data[2]
         motors[11] = self.data[3]
 
-    def getNeck(self, msg):
-        self.data = msg.data
-        motors[12] = self.data[0]
-        motors[13] = self.data[1]
+    #def getNeck(self, msg):
+    #    self.data = msg.data
+    #    motors[12] = self.data[0]
+    #    motors[13] = self.data[1]
 
     def sendArduino(self):
         while(True):
