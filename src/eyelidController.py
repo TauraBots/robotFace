@@ -5,7 +5,7 @@ import rospy
 import time
 import threading
 from std_msgs.msg import (Int16MultiArray, Int16)
-
+import map as mp
 
 # Define angles for close eyelid
 zeroTopLeft = 0
@@ -68,7 +68,7 @@ class eyelidEnable():
 
     def setValues(self):
         if(self.y > 50):
-            self.upper = h + self.y*2 - 100
+            self.upper = h + self.y - 50
             self.down = h
         elif(self.y < 50):
             self.upper = h
