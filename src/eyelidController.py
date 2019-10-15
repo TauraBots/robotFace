@@ -42,7 +42,7 @@ class eyelidEnable():
         self.sub_eyelid_dn = rospy.Subscriber('eye', Int16MultiArray, self.getEyelid_dn)
         rate = rospy.Rate(80) # 80hz
 
-        self.y = 0
+        self.y = 50
         self.animation = 0
         self.upper = 0
         self.down = 0
@@ -72,6 +72,7 @@ class eyelidEnable():
             self.down = h
         elif(self.y < 50):
             self.upper = h
+            #self.down = abs(h + self.y*2 - 100)
             self.down = 100 - (h + self.y)
         elif(self.y == 50):
             self.upper = h
@@ -79,7 +80,7 @@ class eyelidEnable():
 
     def getEyelid_dn(self, msg):
         self.data = msg.data
-        self.y = self.data[1] - 50
+        self.y = self.data[1] #- 50
         print(self.data)
 
     def getEyelid_st(self, msg):

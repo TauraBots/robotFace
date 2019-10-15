@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from faceRecognition.PyDynamixel.pyjoints import DxlComm, Joint
+from PyDynamixel import DxlComm, Joint
 import alsaaudio, time, audioop
 import rospy
 from std_msgs.msg import Int16MultiArray
