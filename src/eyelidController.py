@@ -68,12 +68,12 @@ class eyelidEnable():
 
     def setValues(self):
         if(self.y > 50):
-            self.upper = (h + self.y*2 - 120)
+            self.upper = (h + self.y*2 - 140)
             #self.upper = h + self.y*2 - 75
             self.down = h
         elif(self.y < 50):
             self.upper = h
-            self.down = (120-(h + self.y))
+            self.down = (140-(h + self.y))
             #self.down = 100 - (h + self.y)
         elif(self.y == 50):
             self.upper = h
@@ -109,11 +109,11 @@ class eyelidEnable():
             eyelidEnable.setValues(self)
             x = 0
             if(self.y > 50):
-                animationUpper = (h + self.y*2 - 120)/50
+                animationUpper = (h + self.y*2 - 140)/50
                 animationDown = (h)/50
             elif(self.y < 50):
                 animationUpper = (h)/50
-                animationDown = (120-(h + self.y))/50
+                animationDown = (140-(h + self.y))/50
             elif(self.y == 50):
                 animationUpper = (h)/50
                 animationDown = (h)/50

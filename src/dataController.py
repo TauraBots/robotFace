@@ -16,7 +16,7 @@ class dataflowEnable():
         
         self.port = DxlComm('/dev/ttyUSB0')
         self.joint = Joint(128)
-        self.port.attachJoint(joint)
+        self.port.attachJoint(self.joint)
 
         self.sub_mouth = Int16MultiArray()
         self.sub_mouth.data = []  
@@ -45,55 +45,57 @@ class dataflowEnable():
 
     def getMouth(self, msg):
         global motors
-        self.data = msg.data
-        motors[0] = int(0.3059*self.data[0])
-        motors[1] = int(0.3059*self.data[1])
+        data = msg.data
+        #motors[0] = int(0.3059*self.data[0])
+        motors[0] = data[0]
+        #motors[1] = int(0.3059*self.data[1])
+        motors[1] = data[1]
 
     def getEye(self, msg):
         global motors
-        self.data = msg.data
-        motors[2] = self.data[0]
-        motors[3] = self.data[1]
+        data = msg.data
+        motors[2] = data[0]
+        motors[3] = data[1]
     
     def getEyelid(self, msg):
         global motors
-        self.data = msg.data
-        motors[4] = self.data[0]
-        motors[5] = self.data[1]
-        motors[6] = self.data[2]
-        motors[7] = self.data[3]
+        data = msg.data
+        motors[4] = data[0]
+        motors[5] = data[1]
+        motors[6] = data[2]
+        motors[7] = data[3]
 
     def getEyebrown(self, msg):
         global motors
-        self.data = msg.data
-        motors[8] = self.data[0]
-        motors[9] = self.data[1]
-        motors[10] = self.data[2]
-        motors[11] = self.data[3]
+        data = msg.data
+        motors[8] = data[0]
+        motors[9] = data[1]
+        motors[10] = data[2]
+        motors[11] = data[3]
 
     #def getNeck(self, msg):
-    #    self.data = msg.data
-    #    motors[12] = self.data[0]
-    #    motors[13] = self.data[1]
+    #    data = msg.data
+    #    motors[12] = data[0]
+    #    motors[13] = data[1]
 
     def sendArduino(self):
         while(True):
             global motors
             '''
 
-            self.joint.writeValue(motors[0], 0)
-            self.joint.writeValue(motors[1], 1)
-            self.joint.writeValue(motors[2], 2)
-            self.joint.writeValue(motors[3], 3)
-            self.joint.writeValue(motors[4], 4)
-            self.joint.writeValue(motors[5], 5)
-            self.joint.writeValue(motors[6], 6)
-            self.joint.writeValue(motors[7], 7)
-            self.joint.writeValue(motors[8], 8)
-            self.joint.writeValue(motors[9], 9)
-            self.joint.writeValue(motors[10], 10)
+            self.joint.writeValue(0, motors[0])
+            self.joint.writeValue(1, motors[1])
+            self.joint.writeValue(2, motors[2])
+            self.joint.writeValue(3, motors[3])
+            self.joint.writeValue(4, motors[4])
+            self.joint.writeValue(5, motors[5])
+            self.joint.writeValue(6, motors[6])
+            self.joint.writeValue(7, motors[7])
+            self.joint.writeValue(8, motors[8])
+            self.joint.writeValue(9, motors[9])
+            self.joint.writeValue(10, motors[10])
             '''
-            
+
             time.sleep(0.05)
 
 if __name__ == '__main__':

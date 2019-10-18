@@ -115,7 +115,6 @@ def move_neck():
 def callback_coordinates(msg):
 	'''
 	Funcao de retorno para o Subscriber
-
 	Recebe as coordenadas do centro da face mais proxima a camera e altera o valor da variavel face_center
 	'''
 	global face_center
