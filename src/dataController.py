@@ -14,6 +14,10 @@ class dataflowEnable():
     def __init__(self):
         rospy.init_node('dataController', anonymous=False)
         
+        self.port = DxlComm('/dev/ttyUSB0')
+        self.joint = Joint(128)
+        self.port.attachJoint(joint)
+
         self.sub_mouth = Int16MultiArray()
         self.sub_mouth.data = []  
         self.sub_mouth = rospy.Subscriber('mouth', Int16MultiArray, self.getMouth)
@@ -76,18 +80,18 @@ class dataflowEnable():
         while(True):
             global motors
             '''
-            Joint0.writeValue(motors[0])
-            Joint1.writeValue(motors[1])
-            Joint2.writeValue(motors[2])
-            Joint3.writeValue(motors[3])
-            Joint4.writeValue(motors[4])
-            Joint5.writeValue(motors[5])
-            Joint6.writeValue(motors[6])
-            Joint7.writeValue(motors[7])
-            Joint8.writeValue(motors[8])
-            Joint9.writeValue(motors[9])
-            Joint10.writeValue(motors[10])
-            Joint11.writeValue(motors[11])
+
+            self.joint.writeValue(motors[0], 0)
+            self.joint.writeValue(motors[1], 1)
+            self.joint.writeValue(motors[2], 2)
+            self.joint.writeValue(motors[3], 3)
+            self.joint.writeValue(motors[4], 4)
+            self.joint.writeValue(motors[5], 5)
+            self.joint.writeValue(motors[6], 6)
+            self.joint.writeValue(motors[7], 7)
+            self.joint.writeValue(motors[8], 8)
+            self.joint.writeValue(motors[9], 9)
+            self.joint.writeValue(motors[10], 10)
             '''
             
             time.sleep(0.05)

@@ -62,7 +62,7 @@ def move_neck():
 		height_limits = [tolerance*height, (1-tolerance)*height]
 
 		# Step eh o angulo em radianos que cada motor gira em cada iteracao
-		step = 0.01
+		step = 0.004
 
 		# Verifica se a face mais proxima esta muito para a esquerda
 		if face_center[0] < width_limits[0]:
