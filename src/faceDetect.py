@@ -1,5 +1,4 @@
-# USAGE
-# python detect_faces_video.py --prototxt deploy.prototxt.txt --model res10_300x300_ssd_iter_140000.caffemodel
+#!/usr/bin/env python
 
 # import the necessary packages
 from imutils.video import VideoStream
@@ -12,6 +11,7 @@ import rospy
 from std_msgs.msg import Float64MultiArray
 
 rospy.init_node("faceDetect", anonymous = False)
+pub = rospy.Publisher("updateEyes", Float64MultiArray, queue_size = 1)
 
 # construct the argument parse and parse the arguments
 #ap = argparse.ArgumentParser()
@@ -28,7 +28,7 @@ net = cv2.dnn.readNetFromCaffe("/home/victor_kich/faceDoris/src/robotFace/src/de
 
 # initialize the video stream and allow the cammera sensor to warmup
 print("[INFO] starting video stream...")
-vs = VideoStream(src=2).start()
+vs = VideoStream(src=0).start()
 time.sleep(2.0)
 
 # loop over the frames from the video stream
@@ -86,7 +86,8 @@ while not rospy.is_shutdown():
 		msg = Float64MultiArray()
 		msg.data = larger_area_center
 
-		print msg.data
+		if not np.isnan(larger_area_center[0]) or not np.isnan(larger_area_center[1]):
+			pub.publish(msg)
 
 		# draw the bounding box of the face along with the associated
 		# probability
