@@ -36,8 +36,8 @@ class eyebrownEnable():
             self.rightRotation = 50
             self.leftRotation = 50
         elif(self.emotion == 1):
-            self.rightY = 30
-            self.leftY = 30
+            self.rightY = 80
+            self.leftY = 80
             self.rightRotation = 40
             self.leftRotation = 40
         elif(self.emotion == 2):

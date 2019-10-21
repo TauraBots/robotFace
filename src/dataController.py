@@ -9,10 +9,10 @@ from PyDynamixel import DxlComm, Joint
 class dataflowEnable():
     def __init__(self):
         rospy.init_node('dataController', anonymous=False)
-        rospy.Rate(100) # 100hz
+        rate = rospy.Rate(100) # 100hz
 
         # Define the output vector
-        self.motors = [50] * 12
+        self.motors = [50] * 13
 
         self.port = DxlComm('/dev/ttyACM0')
         self.joint = Joint(128)
@@ -39,17 +39,46 @@ class dataflowEnable():
         #self.sub_neck = rospy.Subscriber('neck', Int16MultiArray, self.getNeck)
 
 
-        updateLoop = threading.Thread(name = 'send2Arduino', target = dataflowEnable.sendArduino, args = (self,))
-        updateLoop.setDaemon(True)
-        updateLoop.start()
+        #updateLoop = threading.Thread(name = 'send2Arduino', target = dataflowEnable.sendArduino, args = (self,))
+        #updateLoop.setDaemon(True)
+        #updateLoop.start()
 
-        rospy.spin()
+        while not rospy.is_shutdown():
+            # 0 - EyebrowRightHeight
+            # 1 - EyebrowLeftHeight
+            # 2 - EyebrowRightAngle
+            # 3 - EyebrowLeftAngle
+            # 4 - EyelidRightUp
+            # 5 - EyelidLeftUp
+            # 6 - EyelidRightDown
+            # 7 - EyelidLeftDown
+            # 8 - EyeHorizontal
+            # 9 - EyeVertical
+            # 10 - Mouth
+
+            print (self.motors)
+            
+            #self.joint.writeValue(4, int(self.motors[4]))
+            #self.joint.writeValue(5, int(self.motors[5]))
+            #self.joint.writeValue(6, int(self.motors[6]))
+            #self.joint.writeValue(7, int(self.motors[7]))
+            self.joint.writeValue(10, int(self.motors[10]))
+            self.joint.writeValue(0, int(self.motors[0]))
+            self.joint.writeValue(1, int(self.motors[1]))
+            self.joint.writeValue(2, int(self.motors[2]))
+            self.joint.writeValue(3, int(self.motors[3]))
+            self.joint.writeValue(8, int(self.motors[8]))
+            self.joint.writeValue(9, int(self.motors[9]))
+            #self.joint.writeValue(10, int(self.motors[10]))
+            self.joint.writeValue(11, int(self.motors[11]))
+            self.joint.writeValue(12, int(self.motors[12]))
+            #rate.sleep()
 
     def getMouth(self, msg):
         data = msg.data
         #motors[0] = int(0.3059*self.data[0])
         #self.motors[10] = abs(100-data[0])
-        self.motors[10] = int(0.3059*data[0])
+        self.motors[10] = data[1]
         #motors[1] = data[1]
 
     def getEye(self, msg):
@@ -59,10 +88,12 @@ class dataflowEnable():
     
     def getEyelid(self, msg):
         data = msg.data
-        self.motors[4] = data[0]
-        self.motors[5] = data[1]
-        self.motors[6] = data[2]
-        self.motors[7] = data[3]
+        #self.motors[4] = data[0]
+        #self.motors[5] = data[1]
+        #self.motors[6] = data[2]
+        #self.motors[7] = data[3]
+        self.motors[11] = data[0]
+        self.motors[12] = data[2]
 
     def getEyebrown(self, msg):
         data = msg.data
@@ -98,7 +129,7 @@ class dataflowEnable():
             self.joint.writeValue(5, int(self.motors[5]))
             self.joint.writeValue(6, int(self.motors[6]))
             self.joint.writeValue(7, int(self.motors[7]))
-            self.joint.writeValue(10, int(self.motors[10]))
+            self.joint.writeValue(10, self.motors[10])
             self.joint.writeValue(0, int(self.motors[0]))
             self.joint.writeValue(1, int(self.motors[1]))
             self.joint.writeValue(2, int(self.motors[2]))
@@ -107,7 +138,7 @@ class dataflowEnable():
             self.joint.writeValue(9, int(self.motors[9]))
             #self.joint.writeValue(10, int(self.motors[10]))
             
-            time.sleep(0.01)
+            time.sleep(0.001)
 
 if __name__ == '__main__':
     try:

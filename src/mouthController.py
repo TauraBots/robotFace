@@ -12,9 +12,9 @@ output = Int16MultiArray()
 output.data = []
 
 class mouthEnable():
-    pub = rospy.Publisher('mouth', Int16MultiArray, queue_size=10)
+    pub = rospy.Publisher('mouth', Int16MultiArray, queue_size=1)
     rospy.init_node('mouthEnable', anonymous=False)
-    rospy.Rate(100) # 100hz
+    rate = rospy.Rate(30) # 100hz
     
     #port = DxlComm('/dev/ttyACM0')
     #joint = Joint(128)
@@ -27,7 +27,7 @@ class mouthEnable():
 
     # Set attributes: Mono, 8000 Hz, 16 bit little endian samples
     inp.setchannels(1)
-    inp.setrate(8000)
+    inp.setrate(2000)
     inp.setformat(alsaaudio.PCM_FORMAT_S16_LE)
     inp.setperiodsize(160)
 
@@ -44,7 +44,7 @@ class mouthEnable():
             #joint.writeValue(10, int(abs(100-value)))
             rospy.loginfo(output)
             pub.publish(output)
-            #rate.sleep()
+            rate.sleep()
         #time.sleep(.001)
 
 if __name__ == '__main__':

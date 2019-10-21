@@ -32,7 +32,7 @@ def move_neck():
 	rospy.Subscriber("updateEyes", Float64MultiArray, callback_coordinates)
 
 	# Inicia comunicacao dos motores dynamixel pela porta serial /dev/ttyUSB0
-	port = DxlComm("/dev/ttyUSB0")
+	port = DxlComm("/dev/ttyUSB1")
 
 	# Inicia as juntas de rotacao com os respectivos IDs dos motores
 	neck_h = Joint(62)			# Junta responsavel pelo movimento horizontal da cabeca, motor ID 62
