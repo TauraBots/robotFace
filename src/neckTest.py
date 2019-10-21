@@ -4,6 +4,31 @@ import cv2
 import rospy
 import numpy as np
 from std_msgs.msg import Float64MultiArray
+import imutils
+
+def rotate_bound(image, angle):
+    # grab the dimensions of the image and then determine the
+    # center
+    (h, w) = image.shape[:2]
+    (cX, cY) = (w // 2, h // 2)
+
+    # grab the rotation matrix (applying the negative of the
+    # angle to rotate clockwise), then grab the sine and cosine
+    # (i.e., the rotation components of the matrix)
+    M = cv2.getRotationMatrix2D((cX, cY), -angle, 1.0)
+    cos = np.abs(M[0, 0])
+    sin = np.abs(M[0, 1])
+
+    # compute the new bounding dimensions of the image
+    nW = int((h * sin) + (w * cos))
+    nH = int((h * cos) + (w * sin))
+
+    # adjust the rotation matrix to take into account translation
+    M[0, 2] += (nW / 2) - cX
+    M[1, 2] += (nH / 2) - cY
+
+    # perform the actual rotation and return the image
+    return cv2.warpAffine(image, M, (nW, nH))
 
 rospy.init_node("faceDetect", anonymous = False)
 
@@ -14,6 +39,12 @@ pub = rospy.Publisher("updateEyes", Float64MultiArray, queue_size = 1)
 
 while not rospy.is_shutdown():
 	ret, img = cap.read()
+	# loop over the rotation angles
+	for angle in np.arange(0, 360, 15):
+		rotated = imutils.rotate(img, 10)
+
+	img = rotated
+	#img = rotate_bound(img, -10)
 	height, width, layers = img.shape
 	img_center = [width/2, height/2]
 

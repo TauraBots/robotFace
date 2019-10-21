@@ -65,8 +65,10 @@ class Env():
 
     def getMouth(self, msg):
         self.data = msg.data
-        motors[0] = int(0.3059*self.data[0])
-        motors[1] = int(0.3059*self.data[1])
+        #motors[0] = int(0.3059*self.data[0])
+        motors[0] = self.data[0]
+        #motors[1] = int(0.3059*self.data[1])
+        motors[1] = self.data[1]
         print(self.data)
 
     def getEye(self, msg):

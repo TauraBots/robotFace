@@ -14,8 +14,12 @@ output.data = []
 class mouthEnable():
     pub = rospy.Publisher('mouth', Int16MultiArray, queue_size=10)
     rospy.init_node('mouthEnable', anonymous=False)
-    rate = rospy.Rate(80) # 10hz
+    rospy.Rate(100) # 100hz
     
+    #port = DxlComm('/dev/ttyACM0')
+    #joint = Joint(128)
+    #port.attachJoint(joint)
+
     #bus = DxlComm('/dev/ttyUSB0')
     #j = Joint(128)
     #bus.attachJoint(j)
@@ -34,12 +38,14 @@ class mouthEnable():
             #j.writeValue(4,vlr)
             #print(audioop.max(data, 2)/100)
             value = audioop.max(data, 2)/100
+            value = int(0.3059*value)
             output.data = []
-            output.data = [value, value]
+            output.data = [value, abs(100 - value)]
+            #joint.writeValue(10, int(abs(100-value)))
             rospy.loginfo(output)
             pub.publish(output)
-            rate.sleep()
-        time.sleep(.001)
+            #rate.sleep()
+        #time.sleep(.001)
 
 if __name__ == '__main__':
     try:

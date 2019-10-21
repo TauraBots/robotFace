@@ -20,8 +20,8 @@ maxBottomLeft = 0
 maxBottomRight = 0
 
 # Define normal statics parameters
-h = 30
-frequency = 4 
+h = 60
+frequency = 3.5
 
 # Define the output vector
 output = Int16MultiArray()
@@ -40,7 +40,7 @@ class eyelidEnable():
         self.sub_eyelid_dn = Int16MultiArray()
         self.sub_eyelid_dn.data = []   
         self.sub_eyelid_dn = rospy.Subscriber('eye', Int16MultiArray, self.getEyelid_dn)
-        rate = rospy.Rate(80) # 80hz
+        rate = rospy.Rate(100) # 80hz
 
         self.y = 50
         self.animation = 0
@@ -58,7 +58,7 @@ class eyelidEnable():
             output.data = [self.upper, self.upper, self.down, self.down]
             rospy.loginfo(output)
             pub.publish(output)
-            rate.sleep()
+            #rate.sleep()
         
     def getOutput(self):
         if (self.animation == 1):
@@ -87,19 +87,19 @@ class eyelidEnable():
     def getEyelid_st(self, msg):
         self.data = msg.data
         if(self.data == 0):
-            self.h = 30
+            self.h = 60
             self.frequency = 4
         elif(self.data == 1):
-            self.h = 40
+            self.h = 70
             self.frequency = 3
         elif(self.data == 2):
-            self.h = 20
+            self.h = 50
             self.frequency = 6
         elif(self.data == 3):
-            self.h = 25
+            self.h = 55
             self.frequency = 3
         elif(self.data == 4):
-            self.h = 50
+            self.h = 80
             self.frequency = 4
         #print(self.data)
     
@@ -107,6 +107,7 @@ class eyelidEnable():
         while(True):
             self.animation = 1
             eyelidEnable.setValues(self)
+            '''
             x = 0
             if(self.y > 50):
                 animationUpper = (h + self.y*2 - 140)/50
@@ -117,21 +118,25 @@ class eyelidEnable():
             elif(self.y == 50):
                 animationUpper = (h)/50
                 animationDown = (h)/50
+            '''
+            saveup = self.upper
+            savedown = self.down
 
-            while(x<50):
-                self.upper = self.upper - animationUpper
-                self.down = self.down - animationDown
+            #while(x<50):
+            self.upper = 0 #self.upper - animationUpper
+            self.down = 0 #self.down - animationDown
                 #print("subtrai: "+str(self.upper))
-                time.sleep(0.005)
-                x = x + 1
-            x = 0
-            while(x<50):
-                self.upper = self.upper + animationUpper
-                self.down = self.down + animationDown
+                #time.sleep(0.008)
+                #x = x + 1
+            #x = 0
+            #while(x<50):
+            time.sleep(0.25)
+            self.upper = saveup #self.upper + animationUpper
+            self.down = savedown #self.down + animationDown
                 #print("soma: "+str(self.upper))
-                time.sleep(0.005)
-                x = x + 1
-            self.animation = 0
+                #time.sleep(0.008)
+                #x = x + 1
+            #self.animation = 0
             time.sleep(frequency)  
             
 
