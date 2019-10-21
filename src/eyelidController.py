@@ -88,22 +88,24 @@ class eyelidEnable():
         print(self.data)
 
     def getEyelid_st(self, msg):
+        global h
+        global frequency
         self.data = msg.data
         if(self.data == 0):
-            self.h = 60
-            self.frequency = 4
+            h = 60
+            frequency = 4
         elif(self.data == 1):
-            self.h = 70
-            self.frequency = 3
+            h = 70
+            frequency = 3
         elif(self.data == 2):
-            self.h = 50
-            self.frequency = 6
+            h = 50
+            frequency = 6
         elif(self.data == 3):
-            self.h = 55
-            self.frequency = 3
+            h = 55
+            frequency = 3
         elif(self.data == 4):
-            self.h = 80
-            self.frequency = 4
+            h = 80
+            frequency = 20
         #print(self.data)
     
     def blink(self):

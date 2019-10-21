@@ -12,5 +12,5 @@ rospy.spin()
 
 def getSound(msg):
     data = msg.data
-    sp.call('mplayer', '{}.mp3'.format(str(data)))
+    sp.call('mplayer', '{}.mpeg'.format(str(data)))
     pub.publish(empty)

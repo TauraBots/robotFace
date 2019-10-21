@@ -92,8 +92,8 @@ class dataflowEnable():
         #self.motors[5] = data[1]
         #self.motors[6] = data[2]
         #self.motors[7] = data[3]
-        self.motors[11] = data[0]
-        self.motors[12] = data[2]
+        self.motors[11] = data[2]
+        self.motors[12] = data[0]
 
     def getEyebrown(self, msg):
         data = msg.data
