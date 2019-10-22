@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 
 import rospy
-from std_msgs.msg import Empty, Int16
-import subprocess as sp
+from std_msgs.msg import Empty, Int16, Bool
+import os
 
 def getSound(msg):
     data = msg.data
-    sp.call('mplayer', 'media/{}.mp3'.format(str(data)))
-    pub.publish(empty)
+    print (data)
+    data = 'mpv /home/victor_kich/faceDoris/src/robotFace/src/media/'+str(data)+'.mp3'
+    os.system(data)
+    pub.publish(True)
 
 rospy.init_node('soundEnable', anonymous=False)
 sub_sound = rospy.Subscriber('sendSound', Int16, getSound)
-pub = rospy.Publisher('finishedSound', Empty)
-empty = Empty()
+pub = rospy.Publisher('finishedSound', Bool, queue_size=1)
+#empty = Empty()
 rospy.spin()
-
-
