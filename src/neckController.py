@@ -32,7 +32,7 @@ def move_neck():
 	rospy.Subscriber("updateEyes", Float64MultiArray, callback_coordinates)
 
 	# Inicia comunicacao dos motores dynamixel pela porta serial /dev/ttyUSB0
-	port = DxlComm("/dev/ttyUSB1")
+	port = DxlComm("/dev/ttyUSB0")
 
 	# Inicia as juntas de rotacao com os respectivos IDs dos motores
 	neck_h = Joint(62)			# Junta responsavel pelo movimento horizontal da cabeca, motor ID 62
@@ -46,17 +46,17 @@ def move_neck():
 	neck_v.enableTorque()
 
 	# Seta a taxa de envio de dados do ros
-	rate = rospy.Rate(3)
+	rate = rospy.Rate(50)
 	while not rospy.is_shutdown():
 		# O calculo dos limites da tela para o pescoco se mover dependem do tamanho da tela
 		# Provavelmente, as dimencoes da camera usada pela Doris sao 300 por 300.
-		width = 640
-		height = 480
+		width = 400
+		height = 300
 
 		# A tolerancia representa a regiao da tela que ativa os movimentos do robo
 		# Tolerance = 0.3 significa que se a face mais proxima estiver nos 30% mais 
 		# da direita da tela, o motor deve rotacionar para a esquerda
-		tolerance = 0.3
+		tolerance = 0.12
 
 		width_limits = [tolerance*width, (1-tolerance)*width]
 		height_limits = [tolerance*height, (1-tolerance)*height]

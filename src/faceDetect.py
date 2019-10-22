@@ -9,9 +9,10 @@ import time
 import cv2
 import rospy
 from std_msgs.msg import Float64MultiArray
+import map as mp
 
 rospy.init_node("faceDetect", anonymous = False)
-pub = rospy.Publisher("updateEyes", Float64MultiArray, queue_size = 1)
+pub = rospy.Publisher("updateEyes", Float64MultiArray, queue_size = 10)
 
 # construct the argument parse and parse the arguments
 #ap = argparse.ArgumentParser()
@@ -31,12 +32,15 @@ print("[INFO] starting video stream...")
 vs = VideoStream(src=0).start()
 time.sleep(2.0)
 
+bigger_center = [np.nan, np.nan, np.nan, np.nan]
+
 # loop over the frames from the video stream
 while not rospy.is_shutdown():
 	# grab the frame from the threaded video stream and resize it
 	# to have a maximum width of 400 pixels
 	frame = vs.read()
-	frame = imutils.resize(frame, width=600)
+
+	frame = imutils.resize(frame, width=400)
  
 	for angle in np.arange(0, 360, 15):
 		rotated = imutils.rotate(frame, 10)
@@ -52,6 +56,8 @@ while not rospy.is_shutdown():
 	# predictions
 	net.setInput(blob)
 	detections = net.forward()
+
+	big_area = np.nan
 
 	height, width, layers = frame.shape
 	img_center = [width/2, height/2]
@@ -71,23 +77,15 @@ while not rospy.is_shutdown():
 		# object
 		box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
 		(startX, startY, endX, endY) = box.astype("int")
-
-		larger_area = 0
-		larger_area_center = [np.nan, np.nan, width, height]
 		
-		center = [(startX+startX+endX)/2, (startY+startY+endY)/2]
-		area = endX*endY
-
-		if area > larger_area:
-			larger_area = area
-			larger_area_center[0] = center[0]
-			larger_area_center[1] = center[1]
-
-		msg = Float64MultiArray()
-		msg.data = larger_area_center
-
-		if not np.isnan(larger_area_center[0]) or not np.isnan(larger_area_center[1]):
-			pub.publish(msg)
+		if np.isnan(big_area):
+			big_area = (box[2] - box[0]) * (box[3] - box[1])
+			bigger_center = box
+		else:
+			area = (box[2] - box[0]) * (box[3] - box[1])
+			if (area > big_area):
+				big_area = area
+				bigger_center = box
 
 		# draw the bounding box of the face along with the associated
 		# probability
@@ -98,6 +96,17 @@ while not rospy.is_shutdown():
 		cv2.putText(frame, text, (startX, y),
 			cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 0, 255), 2)
 
+	msg = Float64MultiArray()
+	tamanho = frame.shape
+	x = (bigger_center[2] - bigger_center[0])/2 + bigger_center[0]
+	y = (bigger_center[3] - bigger_center[1])/2 + bigger_center[1]
+	msg.data = [x,y,tamanho[0], tamanho[1]]
+
+	print msg.data
+
+	if not np.isnan(big_area):
+		pub.publish(msg)
+			
 	# show the output frame
 	cv2.imshow("Frame", frame)
 	key = cv2.waitKey(1) & 0xFF
