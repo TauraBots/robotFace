@@ -29,8 +29,8 @@ class eyesEnable():
         self.data = msg.data
         self.x = self.data[0]
         self.y = self.data[1]
-        self.width = self.data[2]
-        self.height = self.data[3]
+        self.width = self.data[3]
+        self.height = self.data[2]
 
         self.xPosition = abs(100 - mp.map(0, self.width, 0, 100, self.x))
         self.yPosition = mp.map(0, self.height, 0, 100, self.y)

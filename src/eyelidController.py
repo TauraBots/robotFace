@@ -68,6 +68,21 @@ class eyelidEnable():
 
     def setValues(self):
         if(self.y > 50):
+            self.upper = h/2 + self.y - 50
+            self.down = h/2
+            self.output.data = [self.upper, self.upper, self.down, self.down]
+        elif(self.y < 50):
+            self.upper = h/2
+            self.down = h/2 + abs(50 - self.y)
+            self.output.data = [self.upper, self.upper, self.down, self.down]
+        elif(self.y == 50):
+            self.upper = h/2
+            self.down = h/2
+            self.output.data = [self.upper, self.upper, self.down, self.down]
+
+    '''
+    def setValues(self):
+        if(self.y > 50):
             self.upper = (h + self.y*2 - 140)
             #self.upper = h + self.y*2 - 75
             self.down = h
@@ -81,6 +96,7 @@ class eyelidEnable():
             self.upper = h
             self.down = h
             self.output.data = [self.upper, self.upper, self.down, self.down]
+    '''
 
     def getEyelid_dn(self, msg):
         self.data = msg.data
