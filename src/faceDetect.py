@@ -29,7 +29,7 @@ net = cv2.dnn.readNetFromCaffe("/home/victor_kich/faceDoris/src/robotFace/src/de
 
 # initialize the video stream and allow the cammera sensor to warmup
 print("[INFO] starting video stream...")
-vs = VideoStream(src=4).start()
+vs = VideoStream(src=0).start()
 time.sleep(2.0)
 
 bigger_center = [np.nan, np.nan, np.nan, np.nan]

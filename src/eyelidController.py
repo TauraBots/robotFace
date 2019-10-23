@@ -66,21 +66,7 @@ class eyelidEnable():
         elif(self.animation == 0): 
             eyelidEnable.setValues(self)
 
-    def setValues(self):
-        if(self.y > 50):
-            self.upper = h/2 + self.y - 50
-            self.down = h/2
-            self.output.data = [self.upper, self.upper, self.down, self.down]
-        elif(self.y < 50):
-            self.upper = h/2
-            self.down = h/2 + abs(50 - self.y)
-            self.output.data = [self.upper, self.upper, self.down, self.down]
-        elif(self.y == 50):
-            self.upper = h/2
-            self.down = h/2
-            self.output.data = [self.upper, self.upper, self.down, self.down]
-
-    '''
+    
     def setValues(self):
         if(self.y > 50):
             self.upper = (h + self.y*2 - 140)
@@ -96,7 +82,6 @@ class eyelidEnable():
             self.upper = h
             self.down = h
             self.output.data = [self.upper, self.upper, self.down, self.down]
-    '''
 
     def getEyelid_dn(self, msg):
         self.data = msg.data
@@ -109,19 +94,19 @@ class eyelidEnable():
         self.data = msg.data
         if(self.data == 0):
             h = 60
-            frequency = 4
+            frequency = 2
         elif(self.data == 1):
             h = 70
             frequency = 3
         elif(self.data == 2):
             h = 50
-            frequency = 6
+            frequency = 4
         elif(self.data == 3):
             h = 55
             frequency = 3
         elif(self.data == 4):
             h = 80
-            frequency = 20
+            frequency = 8
         #print(self.data)
     
     def blink(self):
@@ -154,7 +139,7 @@ class eyelidEnable():
                 #x = x + 1
             #x = 0
             #while(x<50):
-            time.sleep(0.27)
+            time.sleep(0.3)
             #self.upper = saveup #self.upper + animationUpper
             #self.down = savedown #self.down + animationDown
             self.output.data = [saveup, saveup, savedown, savedown]
