@@ -27,7 +27,7 @@ class mouthEnable():
 
     # Set attributes: Mono, 8000 Hz, 16 bit little endian samples
     inp.setchannels(1)
-    inp.setrate(2000)
+    inp.setrate(8000)
     inp.setformat(alsaaudio.PCM_FORMAT_S16_LE)
     inp.setperiodsize(160)
 
